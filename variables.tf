@@ -25,7 +25,7 @@ variable "billing_mode" {
 
 variable "partition_key" {
   type        = string
-  description = "Partion key (Hash key) of the table"
+  description = "Partition key (Hash key) of the table"
 }
 
 variable "sort_key" {
