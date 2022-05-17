@@ -12,8 +12,15 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    container:
+      image: ssouik/ubuntu-git:latest
     steps:
       - uses: actions/checkout@v2
       - name: Create release
         run: |
-          ./bin/release.sh ${{ secrets.GITHUB_TOKEN }}
+          github-release \
+            --user SSouik
+            --token ${{ secrets.GITHUB_TOKEN }}
+            --file version.json
+            --org SSouik
+            --repo aws-dynamo-db
